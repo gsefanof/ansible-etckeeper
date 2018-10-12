@@ -1,0 +1,8 @@
+---
+
+- name: etckeeper init
+  command: etckeeper init
+
+- name: etckeeper commit
+  command: etckeeper commit "{{ ansible_managed }}"
+  listen: "etckeeper init"

@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: GSE
+  description: no 
+  company: local
+  license: BSD
+  min_ansible_version: 2.7
+  platforms:
+  - name: EL
+    versions:
+    - all
+  galaxy_tags:
+    - installer
+dependencies:  []
+
+

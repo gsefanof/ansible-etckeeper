@@ -1,0 +1,6 @@
+---
+ansible_managed: "Ansible managed."
+
+etck_vcs: "git"
+
+etck_git_commit_options: ""

@@ -1,0 +1,11 @@
+---
+
+# CentOS specific package installations
+- import_tasks: install.yml
+  tags: install
+
+# Configure
+- import_tasks: configure.yml
+  tags: configure
+
+
