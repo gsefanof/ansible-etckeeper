@@ -2,7 +2,9 @@
 
 - name: etckeeper init
   command: etckeeper init
+  become: true
 
 - name: etckeeper commit
   command: etckeeper commit "{{ ansible_managed }}"
   listen: "etckeeper init"
+  become: true
