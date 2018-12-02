@@ -11,5 +11,14 @@
       state: present
     notify: etckeeper init
 
-- meta: flush_handlers
+- name: Block Install Ubuntu
+  when: ansible_os_family == "Debian" and ansible_pkg_mgr == "apt"
+  block:
+  - name: Install packages
+    apt:
+      name:
+      - etckeeper
+      - git
+      state: present
+    notify: etckeeper init
 
