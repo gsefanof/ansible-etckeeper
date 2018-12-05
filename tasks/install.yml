@@ -1,7 +1,7 @@
 ---
 
-- name: Block Install CentOS 7
-  when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "7"
+- name: Block Install CentOS 
+  when: ansible_os_family == "RedHat" and ansible_pkg_mgr == "yum"
   block:
   - name: Install packages
     yum:

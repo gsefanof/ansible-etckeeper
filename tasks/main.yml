@@ -3,7 +3,7 @@
 - name: Check OS compatable
   fail: msg="Role not compatable"
   when:
-  - ansible_distribution != "CentOS" 
+  - ansible_os_family != "RedHat" 
   - ansible_os_family != "Debian"
   tags: check
 
