@@ -11,14 +11,14 @@ variables:
 cache:
   paths:
     - .cache/pip
-    - .cache/venv/
 
+#    - .cache/venv/
+#  - pip install virtualenv
+#  - virtualenv .cache/venv
+#  - source .cache/venv/bin/activate
 #  - curl -sSlo requirements.txt
 before_script:
   - python -V               # Print out python version for debugging
-  - pip install virtualenv
-  - virtualenv .cache/venv
-  - source .cache/venv/bin/activate
   - pip install -r requirements.txt
 
 test:
