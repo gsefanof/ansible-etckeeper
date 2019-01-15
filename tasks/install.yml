@@ -6,19 +6,18 @@
   - name: Install packages
     yum:
       name:
-      - etckeeper
-      - git
+        - etckeeper
+        - git
       state: present
     notify: etckeeper init
 
 - name: Block Install Ubuntu
   when: ansible_os_family == "Debian" and ansible_pkg_mgr == "apt"
   block:
-  - name: Install packages
-    apt:
-      name:
-      - etckeeper
-      - git
-      state: present
-    notify: etckeeper init
-
+    - name: Install packages
+      apt:
+        name:
+          - etckeeper
+          - git
+        state: present
+      notify: etckeeper init

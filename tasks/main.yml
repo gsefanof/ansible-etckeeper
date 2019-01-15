@@ -16,5 +16,3 @@
 - import_tasks: configure.yml
   become: true
   tags: configure
-
-
