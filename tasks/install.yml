@@ -1,6 +1,6 @@
 ---
 
-- name: Block Install CentOS 
+- name: Block Install CentOS
   when: ansible_os_family == "RedHat" and ansible_pkg_mgr == "yum"
   block:
   - name: Install packages
