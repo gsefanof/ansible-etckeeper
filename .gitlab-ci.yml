@@ -5,12 +5,20 @@ services:
   - name: docker.local.intelions.ru/docker:dind
     alias: docker
 
-stages:
-  - test
+variables:
+    PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip
+    - venv/
 
 #  - curl -sSlo requirements.txt
-
 before_script:
+  - python -V               # Print out python version for debugging
+  - pip install virtualenv
+  - virtualenv venv
+  - source venv/bin/activate
   - pip install -r requirements.txt
 
 test:
