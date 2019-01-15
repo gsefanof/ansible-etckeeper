@@ -26,4 +26,4 @@ test:
   script:
     - molecule --version
     - ansible --version
-    - molecule test -s default
+    - molecule --debug test -s default
