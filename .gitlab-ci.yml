@@ -1,0 +1,20 @@
+image: python:2.7
+
+services:
+  - name: docker.local.intelions.ru/docker:dind
+    alias: docker
+
+stages:
+  - test
+
+before_script:
+#  - curl -sSlo requirements.txt 
+  - pip install -r requirements.txt
+
+test:
+  stage: test
+  script:
+    - molecule --version
+    - ansible --version
+    - molecule test -s default
+
