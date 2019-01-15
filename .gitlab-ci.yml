@@ -1,3 +1,4 @@
+---
 image: python:2.7
 
 services:
@@ -7,8 +8,9 @@ services:
 stages:
   - test
 
+#  - curl -sSlo requirements.txt
+
 before_script:
-#  - curl -sSlo requirements.txt 
   - pip install -r requirements.txt
 
 test:
@@ -17,4 +19,3 @@ test:
     - molecule --version
     - ansible --version
     - molecule test -s default
-
