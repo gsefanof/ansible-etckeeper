@@ -1,8 +1,8 @@
 ---
-#image: python:2.7
-#services:
-#  - name: docker.local.intelions.ru/docker:dind
-#    alias: docker
+image: python:2.7
+services:
+  - name: docker.local.intelions.ru/docker:dind
+    alias: docker
 
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
