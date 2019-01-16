@@ -7,7 +7,7 @@ services:
 
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
-  DOCKER_HOST: docker
+  DOCKER_HOST: tcp://docker:12376
 
 cache:
   paths:
