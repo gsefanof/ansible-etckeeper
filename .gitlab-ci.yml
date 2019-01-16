@@ -20,6 +20,8 @@ cache:
 before_script:
   - python -V               # Print out python version for debugging
   - pip install -r requirements.txt
+  - ls -lah /var/run/docker.sock
+  - ping -c 3 docker
 
 test:
   stage: test
