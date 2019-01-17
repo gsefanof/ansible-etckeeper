@@ -20,8 +20,7 @@ cache:
 #  - source .cache/venv/bin/activate
 #  - curl -sSlo requirements.txt
 before_script:
-  - apt-get update
-  - apt-get install -y --no-install-recommends \
+  - apt-get update && apt-get install -y --no-install-recommends \ 
     apt-transport-https \
     software-properties-common \
     gnupg2
