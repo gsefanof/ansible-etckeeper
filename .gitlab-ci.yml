@@ -21,6 +21,7 @@ cache:
 #  - curl -sSlo requirements.txt
 before_script:
   - pip install -r requirements.txt
+  - apt-get install docker-ce
   - ls -lah /var/run/
   - ping -c 3 docker
 
@@ -29,6 +30,7 @@ test:
   script:
     - pwd
     - ls -lah ./
+    - echo $PATH
     - python -V
     - molecule --version
     - ansible --version
