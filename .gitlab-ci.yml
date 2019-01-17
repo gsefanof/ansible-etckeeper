@@ -20,6 +20,7 @@ cache:
 #  - source .cache/venv/bin/activate
 #  - curl -sSlo requirements.txt
 before_script:
+  - apt-get update 
   - apt-get install \
       apt-transport-https \
       ca-certificates \
