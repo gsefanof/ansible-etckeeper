@@ -1,6 +1,6 @@
 # Install CI dependencies
---trusted-host devlib.local.intelions.ru
---index-url http://devlib.local.intelions.ru/repository/pypi-local/simple
+#--trusted-host devlib.local.intelions.ru
+#--index-url http://devlib.local.intelions.ru/repository/pypi-local/simple
 ansible==2.7.4
 #docker==3.7.0
 docker-py
