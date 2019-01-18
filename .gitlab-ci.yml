@@ -1,5 +1,5 @@
 ---
-image: python:2.7
+image: docker.local.intelions.ru/python/python2.7-docker
 
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
@@ -13,21 +13,13 @@ services:
 cache:
   paths:
     - .cache/pip
+    - .cache/venv/
 
-#    - .cache/venv/
-#  - pip install virtualenv
-#  - virtualenv .cache/venv
-#  - source .cache/venv/bin/activate
 #  - curl -sSlo requirements.txt
 before_script:
-  - apt-get update
-  - apt-get install -y --no-install-recommends gnupg2 apt-transport-https software-properties-common
-  - add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
-  - curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
-  - apt-get update
-  - apt-get install docker-ce -y
+  - virtualenv .cache/venv
+  - source .cache/venv/bin/activate
   - pip install -r requirements.txt
-  - apt-get install docker-ce
 
 test:
   stage: test
