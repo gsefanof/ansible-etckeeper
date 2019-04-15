@@ -5,15 +5,49 @@ driver:
   name: docker
 lint:
   name: yamllint
+
 platforms:
-  - name: instance
-    image: centos:7
+  - name: centos
+    image: milcom/centos7-systemd:latest
+    groups:
+      - group1
+    privileged: True
+  - name: debian-stretch
+    image: minimum2scp/systemd-stretch:latest
+    command: /sbin/init
+    groups:
+      - group1
+    privileged: True
+  - name: ubuntu-xenial
+    image: solita/ubuntu-systemd:xenial
+    groups:
+      - group1
+    privileged: True
+  - name: mint
+    image: vcatechnology/linux-mint
+    groups:
+      - group1
+    privileged: True
+  - name: ubuntu-bionic
+    image: solita/ubuntu-systemd:bionic
+    groups:
+      - group1
+    privileged: True
+
 provisioner:
   name: ansible
   lint:
     name: ansible-lint
+
 scenario:
   name: default
+  test_sequence:
+    - lint
+    - destroy
+    - create
+    - converge
+    - verify
+    - destroy
 verifier:
   name: testinfra
   lint:
